@@ -11,13 +11,12 @@ gem 'rails', '~> 5.1.4'
 
 group :production do
   # Use pg as the production database for Active Record
-  gem 'pg'
   gem 'rails_12factor'
 end
 
 group :devlopment do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # Use pg as the database for Active Record
+  gem 'pg'
 end
 
 # Use Puma as the app server
