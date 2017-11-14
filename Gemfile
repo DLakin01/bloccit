@@ -12,11 +12,12 @@ gem 'rails', '~> 5.1.4'
 group :production do
   # Use pg as the production database for Active Record
   gem 'rails_12factor'
+  gem 'pg'
 end
 
-group :devlopment do
+group :development, :test do
   # Use pg as the database for Active Record
-  gem 'pg'
+  gem 'sqlite3'
 end
 
 # Use Puma as the app server
@@ -48,6 +49,8 @@ gem 'thor', '0.20.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do
