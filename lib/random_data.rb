@@ -34,6 +34,7 @@ module RandomData
       'felis', 'morbi', 'tristique', 'id', 'urna', 'sed', 'viverra', 'suspendisse',
       'iaculis', 'magna', 'non', 'ornare', 'finibus', 'Morbi', 'et', 'magna', 'ultrices',
       'nibh', 'hendrerit']
+    lorem_ipsum.shuffle!
     lorem_ipsum[rand(0..49)]
   end
 end
