@@ -1,11 +1,4 @@
 module RandomData
-  lorem_ipsum = ['lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
-    'adipiscing', 'elit', 'ut', 'dapibus', 'quis', 'dui', 'eget', 'facilisis',
-    'praesent', 'ac', 'massa', 'fringilla', 'sodales', 'massa', 'commodo', 'efficitur',
-    'ante', 'curabitur', 'at', 'est', 'sodales', 'euismod', 'ligula', 'vel', 'lacinia',
-    'felis', 'morbi', 'tristique', 'id', 'urna', 'sed', 'viverra', 'suspendisse',
-    'iaculis', 'magna', 'non', 'ornare', 'finibus', 'Morbi', 'et', 'magna', 'ultrices',
-    'nibh', 'hendrerit']
 
   def self.random_paragraph
     sentences = []
