@@ -1,0 +1,28 @@
+<h1>New Advertisement</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for Advertisements</p>
+    <ul>
+      <li>Keep it clean.</li>
+      <li>The incessant use of hashtags will get you banned.</li>
+      <li>Absolutely no bots.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <div class="form-group">
+      <%= form_for @advertisement do |ad|%>
+        <%= ad.label :title, class: "form-text" %>
+        <%= ad.text_field :title, class: "form-control", placeholder: "Enter post title" %>
+
+        <%= ad.label :copy, class: "form-text" %>
+        <%= ad.text_area :copy, class: "form-control" %>
+
+        <%= ad.label :price, class: "form-text" %>
+        <%= ad.text_field :price, class: "form-control" %>
+        <br>
+        <%= ad.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
