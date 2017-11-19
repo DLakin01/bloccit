@@ -10,16 +10,12 @@
     </ul>
   </div>
   <div class="col-md-8">
-    <div class="form-group">
-      <%= form_for @post do |f|%>
-        <%= f.label :title, class: "form-text" %>
-        <%= f.text_field :title, class: "form-control", placeholder: "Enter post title" %>
+    <%= bootstrap_form_for(@post) do |f|%>
+      <%= f.text_field :title, placeholder: "Enter post title" %>
 
-        <%= f.label :body, class: "form-text" %>
-        <%= f.text_area :body, class: "form-control" %>
-        <br>
-        <%= f.submit "Save", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <%= f.text_area :body, placeholder: "What's on your mind?" %>
+
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
