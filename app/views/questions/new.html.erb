@@ -1,0 +1,21 @@
+<h1>Create Question</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for questions</p>
+    <ul>
+      <li>Keep it clean.</li>
+      <li>The incessant use of hashtags will get you banned.</li>
+      <li>No trolls allowed.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= bootstrap_form_for(@question) do |q| %>
+      <%= q.text_field :title, placeholder: "Question title" %>
+
+      <%= q.text_area :body, placeholder: "What do you want to know?" %>
+
+      <%= q.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
