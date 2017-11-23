@@ -10,12 +10,6 @@
     </ul>
   </div>
   <div class="col-md-8">
-    <%= bootstrap_form_for [@topic, @post] do |f|%>
-      <%= f.text_field :title, placeholder: "Enter post title" %>
-
-      <%= f.text_area :body, placeholder: "What's on your mind?" %>
-
-      <%= f.submit "Save", class: "btn btn-primary" %>
-    <% end %>
+    <%= render partial: 'form', locals: { topic: @topic, post: @post } %>
   </div>
 </div>
