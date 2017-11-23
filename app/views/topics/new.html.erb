@@ -10,11 +10,6 @@
     </ul>
   </div>
   <div class="col-md-8">
-    <%= bootstrap_form_for @topic do |f| %>
-      <%= f.text_field :name, placeholder: "Enter topic name" %>
-      <%= f.text_area :description, rows: 8, placeholder: "Enter topic description" %>
-      <%= f.check_box :public, label: "Would you like your topic to be public?", label_class: "font-weight-bold" %>
-      <%= f.submit "Save", class: 'btn btn-primary' %>
-    <% end %>
+    <%= render partial: 'form', locals: { topic: @topic } %>
   </div>
 </div>
