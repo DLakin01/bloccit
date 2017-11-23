@@ -1,0 +1,20 @@
+<h1>Edit Topic</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for topics:</p>
+    <ul>
+      <li>Make sure the topic is appropriate - NO TROLLS!</li>
+      <li>Never insult dogs.</li>
+      <li>Have fun!</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= bootstrap_form_for @topic do |f| %>
+      <%= f.text_field :name, placeholder: "Enter topic name" %>
+      <%= f.text_area :description, rows: 8, placeholder: "Enter topic description" %>
+      <%= f.check_box :public, label: "Would you like your topic to be public?", label_class: "font-weight-bold" %>
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>  

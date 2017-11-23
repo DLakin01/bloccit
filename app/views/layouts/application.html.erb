@@ -12,7 +12,8 @@
   <body>
     <div class="container">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Bloccit", root_path %></li>
+        <li><%= link_to "Topics", topics_path %></li>
         <li><%= link_to "About", about_path %></li>
       </ul>
 
@@ -25,7 +26,7 @@
         <div class="alert alert-warning">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <%= flash[:alert] %>
-        </div>  
+        </div>
       <% end %>
 
       <%= yield %>
