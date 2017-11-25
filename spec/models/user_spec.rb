@@ -36,4 +36,14 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "capitalize callback" do
+
+    it "should format the user's name" do
+      user.name = "daniel lakin"
+      user.email = "dlakin01@gmail.com"
+      user.save
+      expect(user.name).to eq "Daniel Lakin"
+    end
+  end
+
 end
