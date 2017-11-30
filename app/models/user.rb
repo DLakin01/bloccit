@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   before_save { self.email = email.downcase if email.present? }
 
-  # The following codes uses the "||=" shorthand to check if the user
+  # The following code uses the "||=" shorthand to check if the user
   # already has a role. If not, the user is assigned the role of "member"
   before_save { self.role ||= :member }
 

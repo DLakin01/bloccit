@@ -38,10 +38,19 @@ posts = Post.all
   )
 end
 
-user = User.first
-user.update_attributes!(
-  email: 'dlakin01@gmail.com',
-  password: 'Fs4en2t6!'
+# Create an admin user
+admin = User.create!(
+  name: 'Admin User',
+  email: 'admin@exaple.com',
+  password: 'helloworld',
+  role: 'admin'
+)
+
+# Create a member
+member = User.create!(
+  name: 'Member User',
+  email: 'member@example.com',
+  password: 'helloworld'
 )
 
 puts "Seed finished"

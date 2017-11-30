@@ -229,7 +229,6 @@ RSpec.describe TopicsController, type: :controller do
 
       it "assigns topic to be updated to @topic" do
         get :edit, params: {id: my_topic.id}
-
         topic_instance = assigns(:topic)
 
         expect(topic_instance.id).to eq my_topic.id
@@ -251,7 +250,7 @@ RSpec.describe TopicsController, type: :controller do
         expect(updated_topic.description).to eq new_description
       end
 
-      it "redirects ot the updated topic" do
+      it "redirects to the updated topic" do
         new_name = RandomData.random_sentence
         new_description = RandomData.random_paragraph
 
