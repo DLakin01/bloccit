@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
 
   # Shoulda test for association
   it { is_expected.to have_many(:posts) }
+  it { should have_many(:comments) }
 
   # Shoulda tests for name
   it { is_expected.to validate_presence_of(:name) }

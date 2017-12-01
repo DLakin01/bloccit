@@ -10,6 +10,8 @@ RSpec.describe Post, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
   let(:post) { topic.posts.create!(title: title, body: body, user: user) }
 
+  it { should have_many(:comments) }
+
   it { should belong_to(:topic) }
   it { should belong_to(:user) }
 
