@@ -19,5 +19,5 @@ class User < ApplicationRecord
 
   # Maps the given array of attribute types to the integers actually
   # present in our database. 0 = member, and 1 = admin.
-  enum role: [:member, :admin]
+  enum role: [:member, :moderator, :admin]
 end

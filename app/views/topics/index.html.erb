@@ -17,7 +17,9 @@
   </div>
   <% if user_is_authorized_for_topics? %>
     <div class="col-md-4">
-      <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
+      <% if can? :new, @topic %>
+        <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Use CanCanCan for user permissions
+gem 'cancancan', '~> 2.0'
 
 gem 'thor', '0.20.0'
 

@@ -1,6 +1,7 @@
 
 
 class PostsController < ApplicationController
+  load_and_authorize_resource
 
   before_action :require_sign_in, except: :show
   before_action :authorize_user, except: [:show, :new, :create]
