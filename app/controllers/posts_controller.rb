@@ -72,11 +72,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def authorize_edit_update_new_create
+  def authorize_edit_update
     post= Post.find(params[:id])
     unless current_user == post.user || current_user.admin? || current_user.moderator?
       flash[:alert] = "You must have the proper privileges to do that."
       redirect_to [post.topic, post]
-    end  
+    end
   end
 end
