@@ -26,14 +26,16 @@
     </div>
   <% end %>
   <div class="col-md-4">
-    <h3>
-      <%= pluralize(@post.points, 'point') %>
-      <div>
-        <small>
-          <%= pluralize(@post.up_votes, 'up vote') %>,
-          <%= pluralize(@post.down_votes, 'down vote') %>
-        </small>
-      </div>
-    </h3>  
+    <% if current_user %>
+      <h3>
+        <%= pluralize(@post.points, 'point') %>
+        <div>
+          <small>
+            <%= pluralize(@post.up_votes, 'up vote') %>,
+            <%= pluralize(@post.down_votes, 'down vote') %>
+          </small>
+        </div>
+      </h3>
+    <% end %>  
   </div>
 </div>
