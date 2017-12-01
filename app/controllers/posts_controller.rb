@@ -1,10 +1,10 @@
 
 
 class PostsController < ApplicationController
-  load_and_authorize_resource
 
   before_action :require_sign_in, except: :show
-  before_action :authorize_user, except: [:show, :new, :create]
+  before_action :authorize_destroy, only: [:destroy]
+  before_action :authorize_edit_update, only: [:edit, :update]
 
   def show
     @post = Post.find(params[:id])
@@ -64,11 +64,19 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-  def authorize_user
+  def authorize_destroy
     post = Post.find(params[:id])
     unless current_user == post.user || current_user.admin?
       flash[:alert] = "You must be an admin to do that."
       redirect_to [post.topic, post]
     end
+  end
+
+  def authorize_edit_update_new_create
+    post= Post.find(params[:id])
+    unless current_user == post.user || current_user.admin? || current_user.moderator?
+      flash[:alert] = "You must have the proper privileges to do that."
+      redirect_to [post.topic, post]
+    end  
   end
 end

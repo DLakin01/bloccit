@@ -15,11 +15,9 @@
       </div>
     <% end %>
   </div>
-  <% if user_is_authorized_for_topics? %>
-    <div class="col-md-4">
-      <% if can? :new, @topic %>
-        <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="col-md-4">
+    <% if user_is_authorized_to_create_and_delete_topics? %>
+      <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>
