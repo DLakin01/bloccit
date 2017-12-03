@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.20.0'
 
+gem 'figaro', '1.0'
+
 # Use Bootstrap Forms as a Rails form builder
 gem 'bootstrap_form'
 
