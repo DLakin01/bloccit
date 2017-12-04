@@ -19,4 +19,11 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+    if @user.posts
+      @posts = @user.posts.visible_to(current_user)
+    end
+  end
 end

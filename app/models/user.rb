@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include SessionsHelper
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
@@ -22,6 +24,11 @@ class User < ApplicationRecord
 
   def favorite_for(post)
     favorites.where(post_id: post.id).first
+  end
+
+  def avatar_url(size)
+    gravatar_id = Digest::MD5::hexdigest(self.email).downcase
+    "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?s=#{size}"
   end
 
   # Maps the given array of attribute types to the integers actually
