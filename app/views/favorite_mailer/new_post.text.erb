@@ -1,0 +1,6 @@
+You're now following your new post, "<%= @post.title %>".
+<%= "=" * (@post.title.length + 12) %>
+
+Any time someone comments on your post, you will be notified. You can turn off notifications <%= link_to "here", "#"%>.
+
+Visit online at: <%= topic_post_url(@post.topic, @post) %>
