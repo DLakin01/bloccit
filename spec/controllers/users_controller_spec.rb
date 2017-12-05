@@ -1,6 +1,9 @@
 require 'rails_helper'
+include SessionsHelper
 
 RSpec.describe UsersController, type: :controller do
+  render_views
+
   let(:new_user_attributes) do
     {
       name: "BlocHead",
@@ -48,29 +51,40 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "not signed in" do
-    let(:factory_user) { create(:user) }
+  describe "GET show" do
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user) }
+    let(:topic) { create(:topic) }
+    let(:post) { create(:post, topic: topic, user: user) }
+    let(:user_post) {create(:post, topic: topic, user: other_user)}
+    let(:favorite) { Favorite.create!(id: user_post.id) }
 
-
-    # This is confusing!!
     before do
-      post :create, params: { user: {name: factory_user.name, email: factory_user.email, password: factory_user.password } }
+      create_session(user)
     end
 
     it "returns http success" do
-      get :show, params: {id: factory_user.id}
+      get :show, params: {id: user.id}
       expect(response).to have_http_status(:success)
     end
 
     it "renders the show view" do
-      get :show, params: {id: factory_user.id}
+      get :show, params: {id: user.id}
       expect(response).to render_template :show
     end
 
     it "assigns factory_user to @user" do
-      get :show, params: {id: factory_user.id}
-      expect(assigns(:user)).to eq(factory_user)
+      get :show, params: {id: user.id}
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it "renders the favorited posts partial" do
+      get :show, params: {id: user.id}
+      expect(response).to render_template(:partial => "_post")
+    end
+
+    it "pulls the correct gravatars" do
+
     end
   end
-
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -22,8 +23,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.posts
-      @posts = @user.posts.visible_to(current_user)
-    end
+    @posts = @user.posts.visible_to(current_user)
   end
 end
